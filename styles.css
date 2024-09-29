@@ -1,8 +1,7 @@
-@media all and (display-mode: fullscreen) {
-    overscroll-behavior: none;
-}
 
 body {
+    display-mode: fullscreen;
+    overscroll-behavior: contain;
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 50px;
