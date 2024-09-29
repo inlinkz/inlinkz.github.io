@@ -1,1 +1,43 @@
-Hellow
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accelerometer Data PWA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Link to the manifest file -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Include the stylesheet -->
+    <link rel="stylesheet" href="pwa/styles.css">
+
+    <!-- Meta tags for iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+    <h1>Accelerometer Data</h1>
+    <button id="request-permission">Enable Accelerometer</button>
+    <div id="data" style="display: none;">
+        <p>X: <span id="accel-x">0</span></p>
+        <p>Y: <span id="accel-y">0</span></p>
+        <p>Z: <span id="accel-z">0</span></p>
+    </div>
+
+    <!-- Include the main JavaScript file -->
+    <script src="pwa/app.js"></script>
+
+    <!-- Register the service worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+            .then(function(registration) {
+                console.log('Service Worker registration successful with scope:', registration.scope);
+            }, function(err) {
+                console.log('Service Worker registration failed:', err);
+            });
+        }
+    </script>
+</body>
+</html>
